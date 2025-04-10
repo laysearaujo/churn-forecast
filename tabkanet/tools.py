@@ -106,9 +106,9 @@ def get_data_loader(train_dataset, test_dataset, val_dataset,
     Returns:
     - Tuple[DataLoader, DataLoader, DataLoader]: Train, test and validation data loaders
     """
-    train_loader = DataLoader(train_dataset, batch_size=train_batch_size,num_workers=16, shuffle=True)
-    val_loader = DataLoader(val_dataset, batch_size=inference_batch_size, num_workers=16,shuffle=False)
-    test_loader = DataLoader(test_dataset, batch_size=inference_batch_size,num_workers=16, shuffle=False)
+    train_loader = DataLoader(train_dataset, batch_size=train_batch_size,num_workers=0, shuffle=True)
+    val_loader = DataLoader(val_dataset, batch_size=inference_batch_size, num_workers=0,shuffle=False)
+    test_loader = DataLoader(test_dataset, batch_size=inference_batch_size,num_workers=0, shuffle=False)
     return train_loader, test_loader, val_loader
 
 def train(model: torch.nn.Module, epochs: int, task: Literal['regression', 'classification'],
